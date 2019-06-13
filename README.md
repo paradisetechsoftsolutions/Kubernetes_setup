@@ -12,7 +12,9 @@ Slave/Node:</br>
 
 
 </br>
-------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------
+
 </br>
 <strong>Install Kubernetes</strong></br>
 The following steps have to be executed on both the master and node machines. Let’s call the the master as ‘kmaster‘ and node as ‘knode‘. </br>
@@ -30,7 +32,8 @@ Kubernetes doesn't support "swap".</br>
 After that you need to open the ‘fstab’ file and comment out the line which has mention of swap partition.</br>
 <strong># nano /etc/fstab</strong></br> 
 
-</br>
+</br>  
+
 ![1 1](https://user-images.githubusercontent.com/39157936/59428284-707b9b00-8dfa-11e9-9d7a-02c46c04ee32.png)
 </br>
 
@@ -41,7 +44,8 @@ Then press ‘Ctrl+X’, then press ‘Y’ and then press ‘Enter’ to Save t
 To change the hostname of both machines, run the below command to open the file and subsequently rename the master machine to ‘kmaster’ and your node machine to ‘knode’. </br>
 <strong># nano /etc/hostname</strong></br>
 
-</br>  
+</br>    
+
 ![1 2](https://user-images.githubusercontent.com/39157936/59428282-707b9b00-8dfa-11e9-97c0-76071fed81f0.png)  
 </br>
 
@@ -52,14 +56,16 @@ Then press ‘Ctrl+X’, then press ‘Y’ and then press ‘Enter’ to Save t
 Run the following command on both machines to note the IP addresses of each.</br>
 <strong># ifconfig</strong></br>
 
-</br>  
+</br>    
+
 ![1 3](https://user-images.githubusercontent.com/39157936/59428281-6fe30480-8dfa-11e9-9b2f-848ce1dd15e9.png)  
 </br>
 
 Now go to the ‘hosts’ file on both the master and node and add an entry specifying their respective IP addresses along with their names ‘kmaster’ and ‘knode’. This is used for referencing them in the cluster. It should look like the below screenshot on both the machines. </br>
 <strong># nano /etc/hosts </strong></br>
 
-</br>  
+</br>    
+
 ![1 4](https://user-images.githubusercontent.com/39157936/59428280-6fe30480-8dfa-11e9-8548-789a2c513f9e.png)  
 </br>
 
@@ -76,7 +82,8 @@ auto enp0s8</br>
 iface enp0s8 inet static</br>
 address <IP-Address-Of-VM></br>
 </strong></br>  
-</br>
+</br>  
+
 ![1 5](https://user-images.githubusercontent.com/39157936/59428279-6fe30480-8dfa-11e9-9fbd-972a9d1e6c9c.png)
 </br>
 
@@ -122,7 +129,8 @@ Next, we will change the configuration file of Kubernetes. Run the following com
 This will open a text editor, enter the following line after the last “Environment Variable”:</br>
 
 <strong>Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"</strong></br>  
-</br>
+</br>  
+
 ![1 6](https://user-images.githubusercontent.com/39157936/59428278-6f4a6e00-8dfa-11e9-9e5a-4bd6195be2be.png)  
 </br>
 Now press Ctrl+X, then press Y, and then press Enter to Save.</br>
@@ -136,7 +144,8 @@ First, initialize your cluster using its private IP address with the following c
 <li><strong>We will now start our Kubernetes cluster from the master’s machine.</strong></li>
 <strong># kubeadm init --apiserver-advertise-address=<ip-address-of-kmaster-vm> --pod-network-cidr=192.168.0.0/16</strong></br>
 <strong># kubeadm init --apiserver-advertise-address 192.168.1.206 --pod-network-cidr=172.16.0.0/16</strong></br>  
-</br>
+</br>  
+
 ![1 7](https://user-images.githubusercontent.com/39157936/59428277-6f4a6e00-8dfa-11e9-9a3b-0aca0cfb8d34.png)  
 </br>
 <li><strong>As mentioned before, run the commands from the above output as a non-root user</strong></li>
@@ -144,7 +153,8 @@ First, initialize your cluster using its private IP address with the following c
 <strong>$ mkdir -p $HOME/.kube</strong></br>
 <strong>$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</strong></br>
 <strong>$ sudo chown $(id -u):$(id -g) $HOME/.kube/config</strong></br>  
-</br>
+</br>  
+ 
 ![1 8](https://user-images.githubusercontent.com/39157936/59428275-6f4a6e00-8dfa-11e9-9177-d92286388b95.png)  
 </br>
 <li><strong>You will notice from the previous command, that all the pods are running except one: ‘kube-dns’. For resolving this we will install a pod network. To install the CALICO pod network, run the following command:</strong></li>
