@@ -16,7 +16,8 @@ Slave/Node:</br>
 ----------------------------------------------------------------------------------------------------------------------------
 
 </br>
-<strong>Install Kubernetes</strong></br>
+## Install Kubernetes
+
 The following steps have to be executed on both the master and node machines. Let’s call the the master as ‘kmaster‘ and node as ‘knode‘. </br>
 <ol>
 <li><strong>Change to root:</strong></li>
@@ -164,19 +165,22 @@ First, initialize your cluster using its private IP address with the following c
 <li><strong>install network add-on to enable the communication between the pods only on master nodes</strong></li>
 
 <strong>$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</strong></br>  
-</br>
+</br>  
+
 ![1 9](https://user-images.githubusercontent.com/39157936/59428274-6f4a6e00-8dfa-11e9-87c7-6f59c55ea1b5.png)
 </br>  
   
 <li><strong>To verify, if kubectl is working or not, run the following command:</strong></li>
 <strong>$ kubectl get pods -o wide --all-namespaces</strong></br>  
-</br>
+</br>  
+
 ![1 10](https://user-images.githubusercontent.com/39157936/59428273-6eb1d780-8dfa-11e9-81fb-fa335eaff6d4.png)
  </br> 
   
 use "kubectl get nodes" command to ensure the kubernetes master node status is ready.</br>
 <strong>$ kubectl get nodes</strong></br>   
-</br>
+</br>  
+
 ![1 11](https://user-images.githubusercontent.com/39157936/59428272-6eb1d780-8dfa-11e9-81e7-8bc42123b54e.png)
 </br>  
   
@@ -197,7 +201,8 @@ It provides the information on the state of Kubernetes resources in your cluster
 <li><strong>To deploy the Kubernetes dashboard</strong></li>
 
 <strong>kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml </strong></br>  
-</br>
+</br>  
+
 ![1 12](https://user-images.githubusercontent.com/39157936/59428271-6eb1d780-8dfa-11e9-99ab-bd4ddf47b795.png)  
 </br>
 
@@ -205,21 +210,24 @@ It provides the information on the state of Kubernetes resources in your cluster
 
 <strong>kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml </strong></br>  
 
-</br>
+</br>  
+
 ![1 13](https://user-images.githubusercontent.com/39157936/59428270-6e194100-8dfa-11e9-8985-f0f6d96d5c2f.png)
 </br>  
   
 <li><strong>Deploy the influxdb backend for heapster to your cluster:</strong></li>
 <strong>kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml </strong></br>   
 
-</br>
+</br>  
+
 ![1 14](https://user-images.githubusercontent.com/39157936/59428269-6e194100-8dfa-11e9-921c-52db70515437.png)  
 </br>
 
 <li><strong>Create the heapster cluster role binding for the dashboard:</strong></li>
 <strong>kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml </strong></br>    
 
-</br>
+</br>  
+
 ![1 15](https://user-images.githubusercontent.com/39157936/59428268-6e194100-8dfa-11e9-9cdf-a42887d901e6.png)  
 </br>
 </ol>
@@ -228,7 +236,8 @@ It provides the information on the state of Kubernetes resources in your cluster
 <li><strong>To connect to the Kubernetes dashboard</strong></li>
 Retrieve an authentication token for the eks-admin service account. Copy the <authentication_token> value from the output. You use this token to connect to the dashboard.</br>
 <strong> $ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}') </strong></br>    
-</br>
+</br>  
+
 ![1 16](https://user-images.githubusercontent.com/39157936/59428267-6d80aa80-8dfa-11e9-99f7-ce305b6b5dbb.png)  
 </br>
 <li><strong>Start the kubectl proxy.</strong></li>
@@ -242,7 +251,8 @@ It will proxy the server between your machine and Kubernetes API server.</br>
 
 
 Choose Token, paste the <authentication_token> output from the previous command into the Token field, and choose SIGN IN.</br>  
-</br>
+</br>  
+
 ![1 17](https://user-images.githubusercontent.com/39157936/59428266-6d80aa80-8dfa-11e9-98ac-d2612b11de9f.png)  
 </br>
 </ol>
@@ -286,7 +296,8 @@ Start the Installation wizard by typing:</br>
 <li><strong>9.Start VMware Workstation Player</strong></li>
 Create a new virtual machine</br>  
 
-</br>
+</br>  
+
 ![1 18](https://user-images.githubusercontent.com/39157936/59428264-6d80aa80-8dfa-11e9-9d0e-7cbdcba46320.png)  
 </br>
 
@@ -296,7 +307,8 @@ Create a new virtual machine</br>
 <strong>$ sudo su</strong></br>
 <strong># kubeadm join 192.168.1.206:6443 --token 02p54b.p8oe045cpj3zmz2b --discovery-token-ca-cert-hash sha256:50ba20a59c9f8bc0559d4635f1ac6bb480230e173a0c08b338372d8b81fcd061 </strong></br>  
 
-</br>
+</br>  
+
 ![1 19](https://user-images.githubusercontent.com/39157936/59428263-6ce81400-8dfa-11e9-891d-0b95eaf9df7d.png)  
 </br>
 
@@ -304,7 +316,8 @@ Create a new virtual machine</br>
 once worker node is joined with kubernetes master, then verify the list of nodes within the kubernetes cluster.   
 <strong># kubectl get nodes</strong></br>  
 
-</br>
+</br>  
+
 ![1 20](https://user-images.githubusercontent.com/39157936/59428262-6ce81400-8dfa-11e9-98ed-0a3ffd576f53.png)  
 </br> 
 
