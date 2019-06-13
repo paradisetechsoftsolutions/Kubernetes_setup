@@ -105,7 +105,7 @@ Now we have to install openshh-server. Run the following command:</br>
 ----------------------------------------------------------------------------------------------------------------------------
 
 
-<li><strong>Install Docker</strong></li>
+<li><strong>Install Docker</strong></li></br>
 
 Now we have to install Docker because Docker images will be used for managing the containers in the cluster. Run the following commands: </br>
 
@@ -151,7 +151,7 @@ Now press Ctrl+X, then press Y, and then press Enter to Save.</br>
 ----------------------------------------------------------------------------------------------------------------------------
 
 
-<li><strong>Steps Only For Kubernetes Master VM (kmaster)</strong></li>
+<li><strong>Steps Only For Kubernetes Master VM (kmaster)</strong></li></br>
 <ol>
 <li><strong>All the required packages are installed on both servers. Now, it's time to configure Kubernetes Master Node.</strong></li>
 First, initialize your cluster using its private IP address with the following command:</br>
@@ -212,7 +212,7 @@ To uninstall kubernetes</br>
 ----------------------------------------------------------------------------------------------------------------------------
 
 
-<li><strong> Installing the Kubernetes Dashboard</strong></li>
+<li><strong> Installing the Kubernetes Dashboard</strong></li></br>
 
 Uses of Kubernetes Dashboard</br>
 <ol>
@@ -263,7 +263,7 @@ It provides the information on the state of Kubernetes resources in your cluster
 
 
 
-<li><strong> Connect to the Dashboard</strong></li>
+<li><strong> Connect to the Dashboard</strong></li></br>
 <ol>
 <li><strong>To connect to the Kubernetes dashboard</strong></li>
 Retrieve an authentication token for the eks-admin service account. Copy the <authentication_token> value from the output. You use this token to connect to the dashboard.</br>
@@ -297,7 +297,7 @@ Choose Token, paste the <authentication_token> output from the previous command 
 
 
 
-<li><strong>Steps For Only Kubernetes Node VM (knode)</strong></li>
+<li><strong>Steps For Only Kubernetes Node VM (knode)</strong></li></br>
 <ol>
 For trial purpose, we can create nodes in same system with the help of virtual machine.</br>
 <strong>Prerequisites:-</strong></br>
