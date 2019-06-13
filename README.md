@@ -101,8 +101,7 @@ Then press ‘Ctrl+X’, then press ‘Y’ and then press ‘Enter’ to Save t
 Now we have to install openshh-server. Run the following command:</br>
 <strong># sudo apt-get install openssh-server</strong> </br>
 </ol>
------------------------------------------------------------------------------------------------------------------------
-
+----------------------------------------------------------------------------------------------------------------------------
 <li><strong>Install Docker</strong></li>
 
 Now we have to install Docker because Docker images will be used for managing the containers in the cluster. Run the following commands: </br>
@@ -145,7 +144,7 @@ This will open a text editor, enter the following line after the last “Environ
 </br>
 Now press Ctrl+X, then press Y, and then press Enter to Save.</br>
 
------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 
 <li><strong>Steps Only For Kubernetes Master VM (kmaster)</strong></li>
 <ol>
@@ -251,7 +250,7 @@ It provides the information on the state of Kubernetes resources in your cluster
 </br>
 </br>
 </ol>
-------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 
 <li><strong> Connect to the Dashboard</strong></li>
 <ol>
@@ -282,7 +281,7 @@ Choose Token, paste the <authentication_token> output from the previous command 
 ![1 17](https://user-images.githubusercontent.com/39157936/59428266-6d80aa80-8dfa-11e9-98ac-d2612b11de9f.png)  
 </br>
 </ol>
---------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 
 <li><strong>Steps For Only Kubernetes Node VM (knode)</strong></li>
 <ol>
