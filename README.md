@@ -25,9 +25,12 @@ Because, the following set of commands need to be executed with ‘sudo’ permi
 $ sudo su</br>
 # apt-get update</br>
 </strong></br>
+</br>
+
 <li><strong>Turn Off Swap Space: </strong></li>
 Kubernetes doesn't support "swap".</br>
 <strong># swapoff -a</strong></br>
+</br>
 
 After that you need to open the ‘fstab’ file and comment out the line which has mention of swap partition.</br>
 <strong># nano /etc/fstab</strong></br> 
@@ -38,6 +41,7 @@ After that you need to open the ‘fstab’ file and comment out the line which 
 </br>
 
 Then press ‘Ctrl+X’, then press ‘Y’ and then press ‘Enter’ to Save the file.</br>
+</br>
 
 <li><strong>Update The Hostnames:</strong></li>
 
@@ -49,7 +53,8 @@ To change the hostname of both machines, run the below command to open the file 
 ![1 2](https://user-images.githubusercontent.com/39157936/59428282-707b9b00-8dfa-11e9-97c0-76071fed81f0.png)  
 </br>
 
-Then press ‘Ctrl+X’, then press ‘Y’ and then press ‘Enter’ to Save the file. </br>   
+Then press ‘Ctrl+X’, then press ‘Y’ and then press ‘Enter’ to Save the file. </br> </br> 
+</br>
 
 <li><strong>Update The Hosts File With IPs Of Master & Node:</strong></li>
 
@@ -60,7 +65,7 @@ Run the following command on both machines to note the IP addresses of each.</br
 
 ![1 3](https://user-images.githubusercontent.com/39157936/59428281-6fe30480-8dfa-11e9-9b2f-848ce1dd15e9.png)  
 </br>
-
+</br>
 Now go to the ‘hosts’ file on both the master and node and add an entry specifying their respective IP addresses along with their names ‘kmaster’ and ‘knode’. This is used for referencing them in the cluster. It should look like the below screenshot on both the machines. </br>
 <strong># nano /etc/hosts </strong></br>
 
@@ -70,12 +75,12 @@ Now go to the ‘hosts’ file on both the master and node and add an entry spec
 </br>
 
 Then press ‘Ctrl+X’, then press ‘Y’ and then press ‘Enter’ to Save the file.</br>
+</br>
 
 <li><strong>Setting Static IP Addresses:</strong></li>
-
 We will make the IP addresses used above, static for the VMs. We can do that by modifying the network interfaces file. Run the following command to open the file:</br>
 <strong># nano /etc/network/interfaces</strong></br>
-
+</br>
 Now enter the following lines in the file.</br>
 <strong>
 auto enp0s8</br>
@@ -88,14 +93,16 @@ address <IP-Address-Of-VM></br>
 </br>
 
 Then press ‘Ctrl+X’, then press ‘Y’ and then press ‘Enter’ to Save the file.</br>
-
-After this, restart your machine.</br>
+</br>
+<strong>After this, restart your machine.</strong></br>
+</br>
 
 <li><strong>Install OpenSSH-Server:</strong></li>
 Now we have to install openshh-server. Run the following command:</br>
 <strong># sudo apt-get install openssh-server</strong> </br>
 </ol>
-********************************************************
+--------------------------------------------------------------------------------------------------------------------
+
 <li><strong>Install Docker</strong></li>
 
 Now we have to install Docker because Docker images will be used for managing the containers in the cluster. Run the following commands: </br>
@@ -103,9 +110,9 @@ Now we have to install Docker because Docker images will be used for managing th
 <strong># sudo su</strong></br>
 <strong># apt-get update </strong></br>
 <strong># apt-get install -y docker.io</strong></br>
+</br>
 
 Next we have to install these 3 essential components for setting up Kubernetes environment: kubeadm, kubectl, and kubelet.</br>
-
 Run the following commands before installing the Kubernetes environment.</br>
 
 <strong># apt-get update && apt-get install -y apt-transport-https curl</strong></br>
@@ -113,20 +120,23 @@ Run the following commands before installing the Kubernetes environment.</br>
 <strong># cat <<EOF >/etc/apt/sources.list.d/kubernetes.list</strong></br>
 deb http://apt.kubernetes.io/ kubernetes-xenial main</br>
 EOF</strong></br>
+</br>
+
 <strong># apt-get update</strong></br>
+</br>
 
 <li><strong>Install kubeadm, Kubelet And Kubectl </strong></li>
-
 Now its time to install the 3 essential components. Kubelet is the lowest level component in Kubernetes. It’s responsible for what’s running on an individual machine. Kuebadm is used for administrating the Kubernetes cluster. Kubectl is used for controlling the configurations on various nodes inside the cluster.</br>
 
 <strong># apt-get install -y kubelet kubeadm kubectl</strong></br>
+</br>
 
 <li><strong>Updating Kubernetes Configuration</strong></li>
-
 Next, we will change the configuration file of Kubernetes. Run the following command:</br>
-
 <strong>#nano /etc/systemd/system/kubelet.service.d/10-kubeadm.conf</strong></br>
+</br>
 This will open a text editor, enter the following line after the last “Environment Variable”:</br>
+</br>
 
 <strong>Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"</strong></br>  
 </br>  
@@ -135,12 +145,14 @@ This will open a text editor, enter the following line after the last “Environ
 </br>
 Now press Ctrl+X, then press Y, and then press Enter to Save.</br>
 
----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+
 <li><strong>Steps Only For Kubernetes Master VM (kmaster)</strong></li>
 <ol>
 <li><strong>All the required packages are installed on both servers. Now, it's time to configure Kubernetes Master Node.</strong></li>
-
 First, initialize your cluster using its private IP address with the following command:</br>
+</br>
+
 <li><strong>We will now start our Kubernetes cluster from the master’s machine.</strong></li>
 <strong># kubeadm init --apiserver-advertise-address=<ip-address-of-kmaster-vm> --pod-network-cidr=192.168.0.0/16</strong></br>
 <strong># kubeadm init --apiserver-advertise-address 192.168.1.206 --pod-network-cidr=172.16.0.0/16</strong></br>  
@@ -148,8 +160,9 @@ First, initialize your cluster using its private IP address with the following c
 
 ![1 7](https://user-images.githubusercontent.com/39157936/59428277-6f4a6e00-8dfa-11e9-9a3b-0aca0cfb8d34.png)  
 </br>
-<li><strong>As mentioned before, run the commands from the above output as a non-root user</strong></li>
+</br>
 
+<li><strong>As mentioned before, run the commands from the above output as a non-root user</strong></li>
 <strong>$ mkdir -p $HOME/.kube</strong></br>
 <strong>$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</strong></br>
 <strong>$ sudo chown $(id -u):$(id -g) $HOME/.kube/config</strong></br>  
@@ -157,32 +170,38 @@ First, initialize your cluster using its private IP address with the following c
  
 ![1 8](https://user-images.githubusercontent.com/39157936/59428275-6f4a6e00-8dfa-11e9-9177-d92286388b95.png)  
 </br>
+</br>
+
 <li><strong>You will notice from the previous command, that all the pods are running except one: ‘kube-dns’. For resolving this we will install a pod network. To install the CALICO pod network, run the following command:</strong></li>
 
 <strong>$ kubectl apply -f https://docs.projectcalico.org/v3.0/getting-started/kubernetes/installation/hosted/kubeadm/1.7/calico.yaml</strong> </br>
+</br>
 
 <li><strong>install network add-on to enable the communication between the pods only on master nodes</strong></li>
-
 <strong>$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</strong></br>  
+
 </br>  
 
 ![1 9](https://user-images.githubusercontent.com/39157936/59428274-6f4a6e00-8dfa-11e9-87c7-6f59c55ea1b5.png)
 </br>  
-  
+ </br>
+ 
 <li><strong>To verify, if kubectl is working or not, run the following command:</strong></li>
 <strong>$ kubectl get pods -o wide --all-namespaces</strong></br>  
 </br>  
 
 ![1 10](https://user-images.githubusercontent.com/39157936/59428273-6eb1d780-8dfa-11e9-81fb-fa335eaff6d4.png)
  </br> 
+ </br>
   
 use "kubectl get nodes" command to ensure the kubernetes master node status is ready.</br>
+</br>
 <strong>$ kubectl get nodes</strong></br>   
 </br>  
 
 ![1 11](https://user-images.githubusercontent.com/39157936/59428272-6eb1d780-8dfa-11e9-81e7-8bc42123b54e.png)
 </br>  
-  
+  </br>
 To uninstall kubernetes</br>
 <strong>$ kubeadm reset</strong></br>
 
