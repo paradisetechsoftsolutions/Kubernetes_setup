@@ -12,7 +12,7 @@ Slave/Node:</br>
 
 
 </br>
----------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 </br>
 <strong>Install Kubernetes</strong></br>
 The following steps have to be executed on both the master and node machines. Let’s call the the master as ‘kmaster‘ and node as ‘knode‘. </br>
