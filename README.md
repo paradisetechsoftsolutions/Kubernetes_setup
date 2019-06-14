@@ -18,10 +18,10 @@ Slave/Node:</br>
 
 ## Install Kubernetes
 
-The following steps have to be executed on both the master and node machines. Let’s call the the master as ‘kmaster‘ and node as ‘knode‘. </br>
+The following steps have to be executed on both the master and node machines. Let’s call the the master as <strong>‘kmaster‘</strong> and node as <strong>‘knode‘</strong>. </br>
 <ol>
 <li><strong>Change to root:</strong></li>
-Because, the following set of commands need to be executed with ‘sudo’ permissions.</br>
+Because, the following set of commands need to be executed with <strong>‘sudo’</strong> permissions.</br>
 <strong>
 $ sudo su</br>
 # apt-get update</br>
@@ -33,7 +33,7 @@ Kubernetes doesn't support "swap".</br>
 <strong># swapoff -a</strong></br>
 </br>
 
-After that you need to open the ‘fstab’ file and comment out the line which has mention of swap partition.</br>
+After that you need to open the <strong>‘fstab’</strong> file and comment out the line which has mention of swap partition.</br>
 <strong># nano /etc/fstab</strong></br> 
 
 </br>  
@@ -41,7 +41,7 @@ After that you need to open the ‘fstab’ file and comment out the line which 
 ![1 1](https://user-images.githubusercontent.com/39157936/59428284-707b9b00-8dfa-11e9-9d7a-02c46c04ee32.png)
 </br>
 
-Then press ‘Ctrl+X’, then press ‘Y’ and then press ‘Enter’ to Save the file.</br>
+Then press <strong>‘Ctrl+X’</strong>, then press <strong>‘Y’</strong> and then press <strong>‘Enter’</strong> to Save the file.</br>
 </br>
 
 <li><strong>Update The Hostnames:</strong></li>
@@ -67,7 +67,7 @@ Run the following command on both machines to note the IP addresses of each.</br
 ![1 3](https://user-images.githubusercontent.com/39157936/59428281-6fe30480-8dfa-11e9-9b2f-848ce1dd15e9.png)  
 </br>
 </br>
-Now go to the ‘hosts’ file on both the master and node and add an entry specifying their respective IP addresses along with their names ‘kmaster’ and ‘knode’. This is used for referencing them in the cluster. It should look like the below screenshot on both the machines. </br>
+Now go to the <strong>‘hosts’</strong> file on both the master and node and add an entry specifying their respective IP addresses along with their names <strong>‘kmaster’</strong> and <strong>‘knode’</strong>. This is used for referencing them in the cluster. It should look like the below screenshot on both the machines. </br>
 <strong># nano /etc/hosts </strong></br>
 
 </br>    
@@ -75,7 +75,7 @@ Now go to the ‘hosts’ file on both the master and node and add an entry spec
 ![1 4](https://user-images.githubusercontent.com/39157936/59428280-6fe30480-8dfa-11e9-8548-789a2c513f9e.png)  
 </br>
 
-Then press ‘Ctrl+X’, then press ‘Y’ and then press ‘Enter’ to Save the file.</br>
+Then press <strong>‘Ctrl+X’</strong>, then press <strong>‘Y’</strong> and then press <strong>‘Enter’</strong> to Save the file.</br>
 </br>
 
 <li><strong>Setting Static IP Addresses:</strong></li>
@@ -93,13 +93,13 @@ address <IP-Address-Of-VM></br>
 ![1 5](https://user-images.githubusercontent.com/39157936/59428279-6fe30480-8dfa-11e9-9fbd-972a9d1e6c9c.png)
 </br>
 
-Then press ‘Ctrl+X’, then press ‘Y’ and then press ‘Enter’ to Save the file.</br>
+Then press <strong>‘Ctrl+X’</strong>, then press <strong>‘Y’</strong> and then press <strong>‘Enter’</strong> to Save the file.</br>
 </br>
 <strong>After this, restart your machine.</strong></br>
 </br>
 
 <li><strong>Install OpenSSH-Server:</strong></li>
-Now we have to install openshh-server. Run the following command:</br>
+Now we have to install <strong>openshh-server</strong>. Run the following command:</br>
 <strong># sudo apt-get install openssh-server</strong> </br>
 </ol>
 
@@ -115,7 +115,7 @@ Now we have to install Docker because Docker images will be used for managing th
 <strong># apt-get install -y docker.io</strong></br>
 </br>
 
-Next we have to install these 3 essential components for setting up Kubernetes environment: kubeadm, kubectl, and kubelet.</br>
+Next we have to install these 3 essential components for setting up Kubernetes environment: <strong>kubeadm, kubectl, and kubelet</strong>.</br>
 Run the following commands before installing the Kubernetes environment.</br>
 
 <strong># apt-get update && apt-get install -y apt-transport-https curl</strong></br>
@@ -138,7 +138,7 @@ Now its time to install the 3 essential components. Kubelet is the lowest level 
 Next, we will change the configuration file of Kubernetes. Run the following command:</br>
 <strong>#nano /etc/systemd/system/kubelet.service.d/10-kubeadm.conf</strong></br>
 </br>
-This will open a text editor, enter the following line after the last “Environment Variable”:</br>
+This will open a text editor, enter the following line after the last <strong>“Environment Variable”:</strong></br>
 </br>
 
 <strong>Environment="cgroup-driver=systemd/cgroup-driver=cgroupfs"</strong></br>  
@@ -146,7 +146,7 @@ This will open a text editor, enter the following line after the last “Environ
 
 ![1 6](https://user-images.githubusercontent.com/39157936/59428278-6f4a6e00-8dfa-11e9-9e5a-4bd6195be2be.png)  
 </br>
-Now press Ctrl+X, then press Y, and then press Enter to Save.</br>
+Now press <strong>Ctrl+X</strong> then press <strong>'Y'</strong>, and then press <strong>'Enter'</strong> to Save.</br>
 
 
 ----------------------------------------------------------------------------------------------------------------------------
