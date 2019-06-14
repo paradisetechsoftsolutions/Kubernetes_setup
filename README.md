@@ -121,7 +121,7 @@ Run the following commands before installing the Kubernetes environment.</br>
 <strong># apt-get update && apt-get install -y apt-transport-https curl</strong></br>
 <strong># curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -</strong></br>
 <strong># cat <<EOF >/etc/apt/sources.list.d/kubernetes.list</strong></br>
-deb http://apt.kubernetes.io/ kubernetes-xenial main</br>
+<strong>deb http://apt.kubernetes.io/ kubernetes-xenial main</br>
 EOF</strong></br>
 </br>
 
