@@ -154,7 +154,7 @@ Now press <strong>Ctrl+X</strong> then press <strong>'Y'</strong>, and then pres
 
 <li><strong>Steps Only For Kubernetes Master VM (kmaster)</strong></li></br>
 <ol>
-<li><strong>All the required packages are installed on both servers. Now, it's time to configure Kubernetes Master Node.</strong></li>
+<li>All the required packages are installed on both servers. Now, it's time to configure Kubernetes Master Node.</li>
 First, initialize your cluster using its private IP address with the following command:</br>
 </br>
 
@@ -167,7 +167,7 @@ First, initialize your cluster using its private IP address with the following c
 </br>
 </br>
 
-<li><strong>As mentioned before, run the commands from the above output as a non-root user</strong></li>
+<li>As mentioned before, run the commands from the above output as a non-root user</li>
 <strong>$ mkdir -p $HOME/.kube</strong></br>
 <strong>$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</strong></br>
 <strong>$ sudo chown $(id -u):$(id -g) $HOME/.kube/config</strong></br>  
@@ -177,12 +177,12 @@ First, initialize your cluster using its private IP address with the following c
 </br>
 </br>
 
-<li><strong>You will notice from the previous command, that all the pods are running except one: ‘kube-dns’. For resolving this we will install a pod network. To install the CALICO pod network, run the following command:</strong></li>
+<li>You will notice from the previous command, that all the pods are running except one: ‘kube-dns’. For resolving this we will install a pod network. To install the CALICO pod network, run the following command:</li>
 
 <strong>$ kubectl apply -f https://docs.projectcalico.org/v3.0/getting-started/kubernetes/installation/hosted/kubeadm/1.7/calico.yaml</strong> </br>
 </br>
 
-<li><strong>install network add-on to enable the communication between the pods only on master nodes</strong></li>
+<li>Install network add-on to enable the communication between the pods only on master nodes.</li>
 <strong>$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</strong></br>  
 
 </br>  
@@ -191,7 +191,7 @@ First, initialize your cluster using its private IP address with the following c
 </br>  
  </br>
  
-<li><strong>To verify, if kubectl is working or not, run the following command:</strong></li>
+<li>To verify, if kubectl is working or not, run the following command:</li>
 <strong>$ kubectl get pods -o wide --all-namespaces</strong></br>  
 </br>  
 
@@ -199,14 +199,14 @@ First, initialize your cluster using its private IP address with the following c
  </br> 
  </br>
   
-use "kubectl get nodes" command to ensure the kubernetes master node status is ready.</br>
+use <strong>"kubectl get nodes"</strong> command to ensure the kubernetes master node status is ready.</br>
 </br>
 <strong>$ kubectl get nodes</strong></br>     
 
 ![1 11](https://user-images.githubusercontent.com/39157936/59428272-6eb1d780-8dfa-11e9-81e7-8bc42123b54e.png)
 </br>  
   </br>
-To uninstall kubernetes</br>
+<li>To uninstall kubernetes</li></br>
 <strong>$ kubeadm reset</strong></br>
 
 
