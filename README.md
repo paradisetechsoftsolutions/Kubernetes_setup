@@ -387,13 +387,13 @@ Kubernetes master and worker node is ready to deploy the application.</br>
 </br></br>
 
 <strong>$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml</strong></br>  
-</br>  
+  
 
 ![1_22](https://user-images.githubusercontent.com/39157936/59497518-420cc700-8eb1-11e9-8c43-7eea463fbcb1.png)  
 </br>
 
 <strong> $ kubectl get nodes </strong></br>  
-</br>  
+
   
  ![1_23](https://user-images.githubusercontent.com/39157936/59497517-420cc700-8eb1-11e9-9226-c936a0511900.png)   
  
