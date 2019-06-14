@@ -9,9 +9,10 @@ Master:</br>
 Slave/Node:</br>
 1 GB RAM</br>
 1 Core of CPU</br>
+</br>  
 
+![kube_setup](https://user-images.githubusercontent.com/39157936/59486572-4f1cbc80-8e97-11e9-82ad-3445a88a06e8.png)
 
-</br>
 
 ----------------------------------------------------------------------------------------------------------------------------
 
