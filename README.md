@@ -193,7 +193,7 @@ First, initialize your cluster using its private IP address with the following c
  
 <li>To verify, if kubectl is working or not, run the following command:</li>
 <strong>$ kubectl get pods -o wide --all-namespaces</strong></br>  
-</br>  
+</br> 
 
 ![1 10](https://user-images.githubusercontent.com/39157936/59428273-6eb1d780-8dfa-11e9-81fb-fa335eaff6d4.png)
  </br> 
@@ -376,4 +376,25 @@ Once worker node is joined with kubernetes master, then verify the list of nodes
 We have successfully configured the kubernetes cluster.</br>
 Kubernetes master and worker node is ready to deploy the application.</br>
 
-</ol>
+----------------------------------------------------------------------------------------------------------------------------
+
+
+<li>There’s one quick way to verify if your Network Addon is working correctly, which is simply checking the nodes status and waiting for them to go from NotReady to Ready:</li>  </br>
+<strong> $ kubectl get nodes </strong></br>  
+</br>  
+
+![1_21](https://user-images.githubusercontent.com/39157936/59497520-42a55d80-8eb1-11e9-93b6-cc4c65f26f46.png)
+</br></br>
+
+<strong>$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml</strong></br>  
+</br>  
+
+![1_22](https://user-images.githubusercontent.com/39157936/59497518-420cc700-8eb1-11e9-8c43-7eea463fbcb1.png)  
+</br>
+
+<strong> $ kubectl get nodes </strong></br>  
+</br>  
+  
+ ![1_23](https://user-images.githubusercontent.com/39157936/59497517-420cc700-8eb1-11e9-9226-c936a0511900.png)   
+ 
+  </ol>
