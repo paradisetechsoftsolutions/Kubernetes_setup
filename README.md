@@ -117,7 +117,7 @@ Now we have to install Docker because Docker images will be used for managing th
 
 Next we have to install these 3 essential components for setting up Kubernetes environment: <strong>kubeadm, kubectl, and kubelet</strong>.</br>
 Run the following commands before installing the Kubernetes environment.</br>
-<p>&lt&lt EOF &gt;/etc/apt/sources.list.d/kubernetes.list</p>
+<p>cat &lt&lt EOF &gt;/etc/apt/sources.list.d/kubernetes.list</p>
 
 
 
