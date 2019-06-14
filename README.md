@@ -224,16 +224,16 @@ It provides the information on the state of Kubernetes resources in your cluster
 </ol>
 <ol>
  </br>
-<li><strong>To deploy the Kubernetes dashboard</strong></li>
-<strong>kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml </strong></br>  
+<li>To deploy the Kubernetes dashboard</li>
+<strong>$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml </strong></br>  
 </br>  
 
 ![1 12](https://user-images.githubusercontent.com/39157936/59428271-6eb1d780-8dfa-11e9-99ab-bd4ddf47b795.png)  
 </br>
 </br>
 
-<li><strong>Deploy heapster to enable container cluster monitoring and performance analysis on your cluster:</strong></li>
-<strong>kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml </strong></br>  
+<li>Deploy heapster to enable container cluster monitoring and performance analysis on your cluster:</li>
+<strong>$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml </strong></br>  
 
 </br>  
 
@@ -241,8 +241,8 @@ It provides the information on the state of Kubernetes resources in your cluster
 </br>  
   </br>
   
-<li><strong>Deploy the influxdb backend for heapster to your cluster:</strong></li>
-<strong>kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml </strong></br>   
+<li>Deploy the influxdb backend for heapster to your cluster:</li>
+<strong>$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml </strong></br>   
 
 </br>  
 
@@ -250,8 +250,8 @@ It provides the information on the state of Kubernetes resources in your cluster
 </br>
 </br>
 
-<li><strong>Create the heapster cluster role binding for the dashboard:</strong></li>
-<strong>kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml </strong></br>    
+<li>Create the heapster cluster role binding for the dashboard:</li>
+<strong>$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml </strong></br>    
 
 </br>  
 
@@ -266,7 +266,7 @@ It provides the information on the state of Kubernetes resources in your cluster
 
 <li><strong> Connect to the Dashboard</strong></li></br>
 <ol>
-<li><strong>To connect to the Kubernetes dashboard</strong></li>
+<li>To connect to the Kubernetes dashboard</li>
 Retrieve an authentication token for the eks-admin service account. Copy the <authentication_token> value from the output. You use this token to connect to the dashboard.</br>
  </br>
 <strong> $ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep eks-admin | awk '{print $1}') </strong></br>    
@@ -276,14 +276,14 @@ Retrieve an authentication token for the eks-admin service account. Copy the <au
 </br>
 </br>
 
-<li><strong>Start the kubectl proxy.</strong></li>
+<li>Start the kubectl proxy.</li>
 <strong> $ kubectl proxy</strong></br>
 
 It will proxy the server between your machine and Kubernetes API server.</br>
 </br>
 
 
-<li><strong>Open the following link with a web browser to access the dashboard endpoint:</strong></li>
+<li>Open the following link with a web browser to access the dashboard endpoint:</li>
 <strong>http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login </strong></br>
 </br>
 
@@ -307,7 +307,7 @@ For trial purpose, we can create nodes in same system with the help of virtual m
 </br>
 
 ### Install vmware workstation player on ubuntu
-<li><strong>Install required packages</strong></li>
+<li>Install required packages</li>
 <ol>
 <strong>$ sudo apt update</strong></br>
 <strong>$ sudo apt install build-essential</strong></br>
@@ -315,7 +315,7 @@ For trial purpose, we can create nodes in same system with the help of virtual m
 </ol>
 </br>
 
-<li><strong>Download vmware workstation player</strong></li>
+<li>Download vmware workstation player</li>
 <strong>$ wget https://www.vmware.com/go/getplayer-linux</strong></br>
 </br>
 
@@ -323,28 +323,28 @@ Once the download is completed make the installation file executable using the f
 <strong>$ chmod +x getplayer-linux</strong></br>
 </br>
 
-<li><strong>Install vmware workstation player</strong></li>
+<li>Install vmware workstation player</li>
 Start the Installation wizard by typing:</br>
 <strong>$ sudo ./getplayer-linux</strong></br>
 </br>
 
-<li><strong>Accept the terms in the license agreement and click on the Next button.</strong></li>
+<li>Accept the terms in the license agreement and click on the Next button.</li>
 </br>
 
-<li><strong>Next, you will be asked whether you like to check for product updates on startup. Make your selection and click on the Next button.</strong></li>
+<li>Next, you will be asked whether you like to check for product updates on startup. Make your selection and click on the Next button.</li>
 </br>
 
-<li><strong>VMware’s Customer Experience Improvement Program (“CEIP”) helps VMware to improve their products and services by sending anonymous system data and usage information to VMware. If you prefer not to participate in the program select No and click on the Next button</strong></li>
+<li>VMware’s Customer Experience Improvement Program (“CEIP”) helps VMware to improve their products and services by sending anonymous system data and usage information to VMware. If you prefer not to participate in the program select No and click on the Next button</li>
 </br>
 
-<li><strong>7.In next step ,If you don’t have a license key, leave the field empty and click on the Next button.</strong></li>
+<li>In next step ,If you don’t have a license key, leave the field empty and click on the Next button.</li>
 </br>
 
-<li><strong>8.Next, you will see the following page informing you that the VMware Workstation Player is ready to be installed. Click on the Install button.</strong></li>
+<li>Next, you will see the following page informing you that the VMware Workstation Player is ready to be installed. Click on the Install button.</li>
 </br>
 
 
-<li><strong>9.Start VMware Workstation Player</strong></li>
+<li>Start VMware Workstation Player</li>
 Create a new virtual machine</br>  
 
 </br>  
@@ -355,7 +355,7 @@ Create a new virtual machine</br>
 
 </ol>
 
-<li><strong> Open terminal in virtual system and follow the step to create user(knode) and enter command to make connection between master and node.</strong></li>
+<li>Open terminal in virtual system and follow the step to create user(knode) and enter command to make connection between master and node.</li>
 <strong>$ sudo su</strong></br>
 <strong># kubeadm join 192.168.1.206:6443 --token 02p54b.p8oe045cpj3zmz2b --discovery-token-ca-cert-hash sha256:50ba20a59c9f8bc0559d4635f1ac6bb480230e173a0c08b338372d8b81fcd061 </strong></br>  
 
@@ -365,7 +365,7 @@ Create a new virtual machine</br>
 </br>
 
 
-once worker node is joined with kubernetes master, then verify the list of nodes within the kubernetes cluster. </br>  
+Once worker node is joined with kubernetes master, then verify the list of nodes within the kubernetes cluster. </br>  
 <strong># kubectl get nodes</strong></br>  
 
 </br>  
@@ -373,7 +373,7 @@ once worker node is joined with kubernetes master, then verify the list of nodes
 ![1 20](https://user-images.githubusercontent.com/39157936/59428262-6ce81400-8dfa-11e9-98ed-0a3ffd576f53.png)  
 </br> 
 </br>
-we have successfully configured the kubernetes cluster.</br>
-kubernetes master and worker node is ready to deploy the application.</br>
+We have successfully configured the kubernetes cluster.</br>
+Kubernetes master and worker node is ready to deploy the application.</br>
 
 </ol>
