@@ -118,12 +118,15 @@ Now we have to install Docker because Docker images will be used for managing th
 Next we have to install these 3 essential components for setting up Kubernetes environment: <strong>kubeadm, kubectl, and kubelet</strong>.</br>
 Run the following commands before installing the Kubernetes environment.</br>
 
-<strong># apt-get update && apt-get install -y apt-transport-https curl </strong></br>
-<strong># curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - </strong></br>
-<strong># cat <<EOF >/etc/apt/sources.list.d/kubernetes.list </br>
-deb http://apt.kubernetes.io/ kubernetes-xenial main </br>
+```
+
+# apt-get update && apt-get install -y apt-transport-https curl 
+# curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - 
+# cat <<EOF >/etc/apt/sources.list.d/kubernetes.list 
+deb http://apt.kubernetes.io/ kubernetes-xenial main 
 EOF
-</strong></br>
+
+```
 </br>
 
 <strong># apt-get update</strong></br>
@@ -387,7 +390,7 @@ Kubernetes master and worker node is ready to deploy the application.</br>
 ![1_21](https://user-images.githubusercontent.com/39157936/59497520-42a55d80-8eb1-11e9-93b6-cc4c65f26f46.png)
 </br></br>
 
-<strong>$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml</strong></br>  
+<strong>$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</strong></br>  
   
 
 ![1_22](https://user-images.githubusercontent.com/39157936/59497518-420cc700-8eb1-11e9-8c43-7eea463fbcb1.png)  
