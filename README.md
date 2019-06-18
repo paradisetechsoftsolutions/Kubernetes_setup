@@ -1,3 +1,6 @@
+kubeadm join 192.168.1.205:6443 --token 0zjfcb.idepopuc5gk875m0 \
+>     --discovery-token-ca-cert-hash sha256:b8b7159f1b82e61ce8f59edca57a9532c0c109ddd6c6a7cb0267febea568373a
+
 # Kubernetes_setup
 ## Steps to install Kubernetes Cluster
 <ol>
